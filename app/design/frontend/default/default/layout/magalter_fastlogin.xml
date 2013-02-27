@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">  
+    <default>
+        <reference name = "head">
+            <action method="addCss"  ifconfig="fastlogin/configuration/enable"><stylesheet>magalter_fastlogin/styles.css</stylesheet></action>
+            <action method="addJs" ifconfig="fastlogin/configuration/enable"><script>magalter_fastlogin/form.js</script></action>
+        </reference>
+        <reference name = "top.links">
+            <action method = "addLink"><label>Register</label><url>customer/account/create/</url><title>Register</title><prepare>true</prepare></action>
+        </reference>
+        <reference name = "before_body_end">
+            <block type = "fastlogin/login" name="ajaxlogin_form" as="ajaxlogin_form" template = "magalter_fastlogin/headerlogin.phtml" />
+        </reference>
+    </default>   
+</layout>

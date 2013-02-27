@@ -1,0 +1,72 @@
+<?php 
+/******************************************************
+ * Website: http://www.plazathemes.com
+*******************************************************/
+?>
+<?php if( $this->getConfig('enabled') ): ?>
+<?php
+    // Get data banner
+    $slide = $this->getDataBanner4();
+    $path = Mage::getBaseUrl('media');					
+    $width = $this->getConfig('width');
+    $height = $this->getConfig('height');
+    $speed = $this->getConfig('speed');
+    $interval = $this->getConfig('interval');
+    $qty_Item = $this->getConfig('qty_item');
+    /* Get max item & qty item */
+    if ($qty_Item > count($slide)) {
+        $qty_Item = count($slide);
+    }
+?>
+<?php if( count($slide) > 0 ): ?>
+    <div class="ma-banner4-container" style="width:<?php echo $width; ?>px; height:<?php echo $height; ?>px; ">
+        <div class="ma-banner4-wrapper" style="width:<?php echo $width; ?>px; height:<?php echo $height; ?>px; ">	
+            <ul id="ma-banner4-slideshow" style="width:<?php echo $width; ?>px; height:<?php echo $height; ?>px; ">
+                <?php 
+                    $i = 1;
+                    foreach($slide as $s) {
+                        if($i <= $qty_Item) {
+                            //Get images slide show
+                            $st1 = $s['image'];
+                            $p1 = strpos($st1,'banner4');
+                            $st2 = substr($st1,$p1+7);
+                            $p2 = strpos($st2,'"');
+                            $imag = substr($st2,0,$p2);
+                    ?>
+                        <li>					
+                            <?php if( $s['link'] ) { ?>
+                                <a href="<?php echo $s['link']?>" title=""><img src="<?php echo $path.'magentothem/banner4'.$imag;?>" width="<?php echo $width;?>" height="<?php echo $height;?>" alt="" /></a>												
+                            <?php } else { ?>
+                                <img src="<?php echo $path.'magentothem/banner4'.$imag;?>" width="<?php echo $width;?>" height="<?php echo $height;?>" alt="" />
+                            <?php } ?>
+                        </li>
+                <?php
+                        }//end if
+                    $i++; } // end foreach
+                ?>
+            </ul>
+            <?php if( $this->getConfig('next_back') ): ?>
+                <ul class="ma-banner4-nav">
+                    <li class="ma-banner4-prev"><a href="#">Previous</a></li>
+                    <li class="ma-banner4-next"><a href="#">Next</a></li>
+                </ul>
+            <?php endif; ?>
+            <script type="text/javascript">
+                $bn2(document).ready(function() {                    
+                    $bn2("ul#ma-banner4-slideshow").cycle({
+                        fx: '<?php echo $this->getConfig('animation') ?>',
+                        speed: <?php echo $speed; ?>,
+                        timeout: <?php echo $interval; ?>,
+                        <?php if( $this->getConfig('next_back') ): ?>
+                        prev: '.ma-banner4-prev',
+                        next: '.ma-banner4-next',
+                        <?php endif; ?>
+                        pause: 1
+                    });                                        
+                });
+            </script>
+        </div>
+    </div>
+<?php endif; ?>
+<?php endif; ?>
+

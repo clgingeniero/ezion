@@ -1,0 +1,39 @@
+<?xml version="1.0"?> 
+<config>
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<config>
+								<children>
+									<bestsellerproductvertscroller>
+										<title>Bestseller Product Scroller</title>
+									</bestsellerproductvertscroller>
+								</children>
+							</config>
+						</children>
+					</system>	
+					<magentothem translate="title" module="bestsellerproductvertscroller">
+						<title>Magentothem</title>
+						<sort_order>71</sort_order>               
+						<children>
+							<bestsellerproductvertscroller translate="title" module="bestsellerproductvertscroller">
+								<title>Bestseller Product Scroller</title>
+								<sort_order>0</sort_order>
+								<children>
+									<configuration>
+										<title>Configuration</title>
+										<sort_order>1</sort_order>
+										<action>adminhtml/system_config/edit/section/bestsellerproductvertscroller</action>
+									</configuration>
+								</children>
+							</bestsellerproductvertscroller>
+						</children>
+					</magentothem>					
+				</children>
+			</admin>
+        </resources>
+	</acl>
+</config>

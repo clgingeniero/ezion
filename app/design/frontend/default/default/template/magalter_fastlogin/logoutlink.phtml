@@ -1,0 +1,7 @@
+<?php 
+
+	$urlHelper = new Mage_Customer_Helper_Data();
+	$url = $urlHelper->getLogoutUrl();		  
+?>
+
+<a title = "<?php echo $this->__('Log out') ?>" href = "<?php echo $url ?>"><?php echo $this->__("Log out") ?></a>

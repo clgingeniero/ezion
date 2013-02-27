@@ -1,0 +1,34 @@
+<?php 
+    $extensionsInfo = $this->getExtensionsInfo();
+?>
+<table class="magalterconfig-table">
+    <thead>
+        <tr>
+            <th><?php echo $this->__('Name') ?></th>
+            <th><?php echo $this->__('Available Version') ?></th>
+            <th><?php echo $this->__('Installed Version') ?></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($extensionsInfo as $code => $info): ?>
+        <?php $currentVersion = isset($info['version']) ? $info['version'] : NULL; ?>
+        <?php $installedVersion = $this->getExtensionVersion($code); ?>
+        <tr>
+            <td><?php echo isset($info['name']) ? $info['name'] : 'N/A' ?></td>
+            <td><?php echo $currentVersion ? $currentVersion : 'N/A' ?></td>
+            <td><?php echo $installedVersion ? $installedVersion : 'N/A' ?></td>
+            <td>
+            <?php if ($currentVersion == $installedVersion): ?>
+                <?php echo $this->__('OK') ?>
+            <?php else: ?>
+                <a target="_blank" href="<?php echo isset($info['url']) ? base64_decode($info['url']) : 'http://www.magalter.com' ?>">
+                    <?php echo $this->__('Get update') ?>
+                </a>
+            <?php endif; ?>
+            </td>
+        </tr>
+    <?php endforeach; ?>        
+    </tbody>
+</table>
+

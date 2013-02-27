@@ -1,0 +1,68 @@
+ 
+DIV#ajax_login_wrapper DIV#actions BUTTON{    
+    float:right;      
+}
+
+DIV#ajax_login_wrapper UL.messages {
+    display:none;
+    min-height:20px;
+    height:auto!important;
+}
+
+.fastloginButton {width:65px!important; background: none!important;}
+
+
+DIV#ajax_login_wrapper {
+    background:yellow url("../images/bkg_header.jpg");
+    width:370px;
+}
+
+DIV#ajax_login_contents {	
+    width:350px;
+    float:right;
+    min-height:20px;
+    height:auto!important;
+    position:relative;
+    z-index:1;
+    margin:0;
+    padding: 10px 7px;
+
+}
+
+DIV#ajaxlogin_loader_holder{	
+    width:350px;
+    float:right;
+    min-height:20px;
+    height:auto!important;
+    position:relative;
+    z-index:1;
+    margin:0;
+    padding: 10px;
+    background:url("../images/ajaxlog_loader.gif") no-repeat center center;
+
+}
+
+DIV#ajax_login_contents INPUT {		 
+    width:120px;
+}
+
+
+DIV#ajax_login_contents DIV DIV {	
+    background:none!important;
+    padding-left:0!important;
+    padding-right:10px!important;
+    text-align:left!important;
+    margin:0;	
+}
+
+DIV#float1, DIV#float2{
+
+    position:relative;		 
+    width:140px;
+    float:left;
+    margin:0;
+    text-align:left;	
+}
+
+
+IMG#ajaxlogin_loader_cache {display:block;position:absolute;left:-9999px;}

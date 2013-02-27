@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <cms_index_index>
+		<reference name="head">
+            <action method="addCss" ifconfig="banner4/banner4_config/enabled"><stylesheet>magentothem/css/ma.banner4.css</stylesheet></action>
+			<action method="addJs" ifconfig="banner4/banner4_config/enabled"><script>magentothem/banner4/ma.jqscript.js</script></action>
+			<action method="addJs" ifconfig="banner4/banner4_config/enabled"><script>magentothem/banner4/ma.slidescript.js</script></action>
+        </reference>
+        <reference name="content">
+            <!--<block type="banner4/banner4" name="ma.banner4slideshow" template="magentothem/banner4/banner4.phtml" />-->
+        </reference>
+    </cms_index_index>
+</layout> 

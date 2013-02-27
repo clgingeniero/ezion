@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <magalter translate="label" module="magalterconfig">
+            <label>Magalter</label>
+            <sort_order>150</sort_order>
+        </magalter>
+    </tabs>
+    <sections>
+        <magalterconfig translate="label" module="magalterconfig">
+            <label>Magalter Extensions</label>
+            <tab>magalter</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general>
+                    <label>Check Version</label>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <frontend_model>magalterconfig/versions</frontend_model>
+                </general>
+                 <configuration translate="label">
+                    <label>Newsletter settings</label>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>                   
+                    <fields>
+                        <subscribe translate="label">
+                            <label>Subscribe to newsletter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_Yesno</source_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>                                                
+                        </subscribe>                        
+                   </fields>
+                </configuration>
+            </groups>
+        </magalterconfig>
+    </sections>
+</config>

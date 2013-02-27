@@ -1,0 +1,70 @@
+ <?php if(!Mage::getSingleton('customer/session')->getCustomer()->getId()):?>
+<div id = "ajax_login_wrapper" <?php
+
+  if($this->getData('hideForm') == 1) {
+        echo "style = 'display:none;';";
+  }
+?>>
+    <div id = "ajax_login_contents">       
+                <ul class="messages" id ="ajax_login_wrapper_ul" style = "text-align:left;"><li class="error-msg"><ul><li><span id = "do-err-messages"></span></li></ul></li></ul>
+        <form action="<?php echo Mage_Customer_Block_Form_Login::getPostActionUrl() ?>" onsubmit="return ajaxloginForm.getClass().validateForm();"  method="post" id = "do_ajaxlogin_form">
+                <div id = "float1">
+                   <input type="text" name="login[username]" value = "<?php  echo $this->__('Login email') ?>" id="do-mini-login" class="input-text required-entry validate-email" />
+                </div>
+                <div id = "float2">
+                     <input type="password" name="login[password]" id="do-mini-password" class="input-text required-entry validate-password" value = "<?php  echo $this->__('Login password') ?>" />
+                </div>
+                 <div class="actions">
+                    <button type="submit" class="button fastloginButton"><span><?php  echo $this->__('Login') ?></span></button>                
+                 </div>
+        </form>	 
+    </div>  
+	<div id = "ajaxlogin_loader_holder" style = "display:none;"></div> 
+</div>
+
+ <img id = "ajaxlogin_loader_cache" src = "<?php echo Mage::getModel('core/design_package')->getSkinUrl('images/ajaxlog_loader.gif'); ?>" />
+
+
+<?php endif; ?>
+<script type = "text/javascript">
+document.observe("dom:loaded", function() {
+       <?php       
+            if($this->getData('ajaxEnabled') != 1) {
+                echo "ajaxloginForm.ajax = false;";
+            }
+            if($this->getData('hideForm') != 1) {
+                echo "ajaxloginForm.hideForm = false;";
+            }
+            if($this->getData('cartSideBar') != 1) {
+                echo "ajaxloginForm.cartSidebar = false;";
+            }
+            if(isset($this->_data['position'])) {
+                echo "ajaxloginForm.computePosition = false;";
+            }
+            
+            if($this->getData('horizontal_correction')) {                 
+                echo "ajaxloginForm.horizontalCorrection = '{$this->getHorizontalCorrection()}';";                 
+            }
+            if($this->getData('vertical_correction')) {
+                echo "ajaxloginForm.verticalCorrection = '{$this->getVerticalCorrection()}';";                 
+            }
+            
+            
+       ?>      
+     ajaxloginForm.init('do_ajaxlogin_form');
+     ajaxloginForm.getClass().computeBlockPosition('ajax_login_wrapper');
+     
+     
+       Event.observe(document.body, 'click', function(event) {
+          var element = Event.element(event);
+           if(!Object.isElement(element.up('#ajax_login_wrapper'))) {
+                if($('ajax_login_wrapper').getStyle('display') == 'block') {
+                    Effect.toggle($('ajax_login_wrapper'),'appear');
+                }
+           }
+       });   
+     
+     
+     
+});
+</script>
