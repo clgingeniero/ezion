@@ -1,5 +1,6 @@
 .ma-banner4-container {
-	border:1px solid #dedede;
+    margin: 0 auto;
+	/** border:1px solid #dedede; */
 }
 .ma-banner4-wrapper {
     position: relative;

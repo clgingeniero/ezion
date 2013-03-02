@@ -53,6 +53,7 @@ class Inchoo_FeaturedProducts_Block_Product_List extends Mage_Catalog_Block_Prod
 				->addTaxPercents()
 				->addAttributeToFilter('inchoo_featured_product', 1, 'left')
 				->addStoreFilter();
+                        $collection->setPageSize(3);
 
 			Mage::getSingleton('catalog/product_status')->addVisibleFilterToCollection($collection);
 			Mage::getSingleton('catalog/product_visibility')->addVisibleInCatalogFilterToCollection($collection);

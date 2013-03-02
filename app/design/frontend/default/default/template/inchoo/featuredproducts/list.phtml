@@ -63,14 +63,16 @@
 
     <?php $_collectionSize = $_productCollection->count() ?>
     <?php $_columnCount = $this->getColumnCount(); ?>
-    <?php $i=0; foreach ($_productCollection as $_product): ?>
+    <?php $u = 0; $i=0; 
+    
+        foreach ($_productCollection as $_product): if($u < 3):  $u ++; ?>
         <?php if ($i++%$_columnCount==0): ?>
         <ul class="products-grid">
         <?php endif ?>
             <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
                 <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135); ?>" width="135" height="135" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
                 <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
-                <?php echo $_product->getShortDescription() ?>
+                <div class="shdes"><?php echo substr($_product->getShortDescription(),0, 180) ?></div>
                     <?php if($_product->getRatingSummary()): ?>
                 <?php echo $this->getReviewsSummaryHtml($_product, 'short') ?>
                 <?php endif; ?>
@@ -88,11 +90,11 @@
                     <?php //endif; ?>
                     
                 </div>
-            </li>
+            </li><?php if($i%$_columnCount!=0): ?><li class="borde"></li> <?php endif; ?>
         <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
         </ul>
-        <?php endif ?>
-        <?php endforeach ?>
+        <?php endif; endif; ?>
+        <?php endforeach; ?>
         <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
     <?php endif; ?>
 

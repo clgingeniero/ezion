@@ -13,8 +13,9 @@ DIV#ajax_login_wrapper UL.messages {
 
 
 DIV#ajax_login_wrapper {
-    background:yellow url("../images/bkg_header.jpg");
-    width:370px;
+    background: url("../images/cuadro_login.png") repeat-y scroll 0 0 transparent;
+    height: 200px;
+    width: 370px;
 }
 
 DIV#ajax_login_contents {	
@@ -25,7 +26,7 @@ DIV#ajax_login_contents {
     position:relative;
     z-index:1;
     margin:0;
-    padding: 10px 7px;
+    padding: 45px 7px;
 
 }
 
@@ -58,7 +59,7 @@ DIV#ajax_login_contents DIV DIV {
 DIV#float1, DIV#float2{
 
     position:relative;		 
-    width:140px;
+    width:132px;
     float:left;
     margin:0;
     text-align:left;	
@@ -66,3 +67,11 @@ DIV#float1, DIV#float2{
 
 
 IMG#ajaxlogin_loader_cache {display:block;position:absolute;left:-9999px;}
+
+.actions{padding-left: 55px;
+    padding-top: 50px;
+    width: 141px;}
+.inses{font-weight: bold;
+    margin-left: -18px;
+    width: 120px;}
+
