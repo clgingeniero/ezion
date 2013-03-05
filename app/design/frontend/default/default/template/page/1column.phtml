@@ -40,6 +40,20 @@
     <?php echo $this->getChildHtml('global_notices') ?>
     <div class="page">
         <?php echo $this->getChildHtml('header') ?>
+        <div class="banner">
+
+            <?php //echo $this->getChildHtml('topMenu') ?>
+            <div class="bann-tot">
+                <div class="cont-banner">
+                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('banner')->toHtml() ?>
+                </div>
+                <div class="cont-login">
+                    <?php echo $this->getChildHtml('ajaxlogin_form') ?>
+                </div>
+                
+           </div>
+        </div>
+        <div class="sombra-banner"></div>
         <div class="main-container col1-layout">
             <div class="main">
                 <?php echo $this->getChildHtml('breadcrumbs') ?>

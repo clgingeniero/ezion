@@ -13,20 +13,29 @@ DIV#ajax_login_wrapper UL.messages {
 
 
 DIV#ajax_login_wrapper {
-    background: url("../images/cuadro_login.png") repeat-y scroll 0 0 transparent;
+    
     height: 200px;
-    width: 370px;
+   
 }
 
 DIV#ajax_login_contents {	
-    width:350px;
-    float:right;
-    min-height:20px;
-    height:auto!important;
-    position:relative;
-    z-index:1;
-    margin:0;
+   -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+   
+    border-radius: 8px 8px 8px 8px;
+    border: solid 2px #A4A6A7;
+    border-top: none;
+    float: right;
+    height: 110px !important;
+    margin: -10px 0 0 4px;
+    min-height: 20px;
     padding: 45px 7px;
+    
+    position: relative;
+    width: 256px;
+    z-index: 1;
 
 }
 
@@ -59,7 +68,7 @@ DIV#ajax_login_contents DIV DIV {
 DIV#float1, DIV#float2{
 
     position:relative;		 
-    width:132px;
+    width:128px;
     float:left;
     margin:0;
     text-align:left;	
@@ -73,5 +82,5 @@ IMG#ajaxlogin_loader_cache {display:block;position:absolute;left:-9999px;}
     width: 141px;}
 .inses{font-weight: bold;
     margin-left: -18px;
-    width: 120px;}
+    width: 128px;}
 
