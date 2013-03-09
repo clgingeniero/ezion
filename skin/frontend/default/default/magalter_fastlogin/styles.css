@@ -9,7 +9,7 @@ DIV#ajax_login_wrapper UL.messages {
     height:auto!important;
 }
 
-.fastloginButton {width:65px!important; background: none!important;}
+.fastloginButton {width:85px!important; background: url("../images/ingresar.png") no-repeat center center !important;}
 
 
 DIV#ajax_login_wrapper {
@@ -83,4 +83,3 @@ IMG#ajaxlogin_loader_cache {display:block;position:absolute;left:-9999px;}
 .inses{font-weight: bold;
     margin-left: -18px;
     width: 128px;}
-

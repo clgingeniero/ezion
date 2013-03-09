@@ -96,7 +96,7 @@ ul,ol         { list-style:none; }
 .page-print { background:#fff; padding:25px 30px; text-align:left; }
 .page-empty { background:#fff; padding:20px; text-align:left; }
 .page-popup { background:#fff; padding:25px 30px; text-align:left; }
-.main-container { margin-top: -1px;}
+.main-container { margin-top: -1px; }
 .main { width:943px; margin:0 auto;  }
 
 /* Base Columns */
@@ -149,7 +149,7 @@ input.qty { width:2.5em !important; }
 button.button::-moz-focus-inner { padding:0; border:0; } /* FF Fix */
 button.button { -webkit-border-fit:lines; } /* <- Safari & Google Chrome Fix */
 button.button { overflow:visible; width:auto; border:0; padding:0; margin:0; background:transparent; cursor:pointer; }
-button.button span { display:block; height:19px; border:1px solid #A8CE38; background:#A8CE38; padding:0 8px; font:bold 12px/19px Arial, Helvetica, sans-serif; text-align:center; white-space:nowrap; color:#fff; }
+button.button span { display:block; height:19px; padding:0 8px; font:bold 12px/19px Arial, Helvetica, sans-serif; text-align:center; white-space:nowrap; color:#fff; }
 button.button span span { border:0; padding:0; }
 button.disabled span { border-color:#bbb !important; background:#bbb !important; }
 
@@ -1728,7 +1728,7 @@ height: 35px;}
 .footer .bugs { margin:13px 0 0; color:#ecf3f6; }
 .footer .bugs a { color:#ecf3f6; text-decoration:underline; }
 .footer .bugs a:hover { text-decoration:none; }
-.footer address { margin:0 0 20px; color:#000; }
+.footer address { margin:0 0 20px; color:#E2E2E3; }
 .footer address a { color:#ecf3f6; text-decoration:underline; }
 .footer address a:hover { text-decoration:none; }
 .footer ul { display:inline; }
@@ -1868,9 +1868,40 @@ width: 120px;}
 .bann-tot{margin: 0 auto;
     width: 1005px;}
 .cont-banner{float: left;
+    
     width: 693px;}
 .cont-login{float: left;}
 .sombra-banner{background: url("../images/franja_desvanecido_gris.png") repeat-x scroll 50% 0 transparent;
     height: 67px;
     margin-top: -67px;
     width: 100%;}
+.block-super-catalog{
+    float: left;
+    width: 22%;
+}
+
+.dv-tit{color: #FFFFFF;
+    font-size: 23px;
+    font-weight: bold;
+    margin-top: 108px;
+    padding-left: 15px;
+    text-align: left;}
+.tit-tienda{}
+.img-tienda{}
+
+
+.col-main-catalog{
+    background: url("../images/fondo_azul.png") repeat scroll 0 0 transparent;
+    border-top: 2px solid #81AAC6;
+    height: 360px;
+    margin-top: -1px;
+    width: 100%;}
+
+.banner-cat{
+    color: #FFFFFF;
+    float: left;
+    font-size: 15px;
+    font-weight: bold;
+    padding-top: 40px;
+    width: 693px;
+}
