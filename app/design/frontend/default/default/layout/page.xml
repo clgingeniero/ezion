@@ -76,6 +76,7 @@ Default layout, loads most of the pages
                     <label>Page Header</label>
                     <action method="setElementClass"><value>top-container</value></action>
                 </block>
+                <block type="core/text_list" name="top.navadmin" as="topNavadmin"/>
             </block>
 
             <block type="core/text_list" name="ma.footerlink" as="ma.footerlink" />
@@ -159,6 +160,8 @@ Default layout, loads most of the pages
             <action method="setTemplate"><template>page/1column.phtml</template></action>
             <!-- Mark root page block that template is applied -->
             <action method="setIsHandle"><applied>1</applied></action>
+            <block type = "fastlogin/login" name="ajaxlogin_form" as="ajaxlogin_form" template = "magalter_fastlogin/headerlogin.phtml" />
+           
         </reference>
     </page_one_column>
 

@@ -47,6 +47,9 @@ Default layout, loads most of the pages
         <!-- Mage_Catalog -->
         <reference name="top.menu">
             <block type="catalog/navigation" name="catalog.topnav" template="catalog/navigation/top.phtml"/>
+            <reference name="top.navadmin">
+            <block type="navadmin/navadmin" name="navadmin" template="navadmin/top.phtml"/>
+            </reference>
         </reference>
         <reference name="left">
             <block type="catalog/product_compare_sidebar" name="catalog.compare.sidebar" template="catalog/product/compare/sidebar.phtml"/>

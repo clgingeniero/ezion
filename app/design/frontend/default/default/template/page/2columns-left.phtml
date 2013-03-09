@@ -40,14 +40,47 @@
     <?php echo $this->getChildHtml('global_notices') ?>
     <div class="page">
         <?php echo $this->getChildHtml('header') ?>
-        <div class="main-container col2-left-layout">
+        <div class="col-main-catalog">
+
+            <?php //echo $this->getChildHtml('topMenu') ?>
+            <div class="bann-tot">
+                <div class="dv-tit">
+                    <span class="tit-tienda"><?php echo $this->__('Nuestra tienda'); ?></span>
+                    <div class="img-tienda"></div>
+                </div>
+                <div class="banner-cat">
+                    <div class="block-super-catalog">
+                        <span class="t-active"><?php echo $this->__('Revistas'); ?></span>
+                        <div class="texto-cat"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('revista')->toHtml(); ?></div> 
+                    </div>
+                    <div class="block-super-catalog">
+                        <span class="t-inactive"><?php echo $this->__('Libros'); ?></span>
+                        <div class="texto-cat"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('libro')->toHtml(); ?></div> 
+                    </div>
+                     <div class="block-super-catalog">
+                        <span class="t-inactive"><?php echo $this->__('Aula virtual'); ?></span>
+                        <div class="texto-cat"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('aula')->toHtml(); ?></div> 
+                    </div>
+                    <div class="block-super-catalog">
+                        <span class="t-inactive"><?php echo $this->__('Aplicaciones'); ?></span>
+                        <div class="texto-cat"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('aplica')->toHtml(); ?></div> 
+                    </div>
+                    <?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('banner')->toHtml() ?>
+                </div>
+                <div class="cont-login">
+                    <?php echo $this->getChildHtml('ajaxlogin_form') ?>
+                </div>
+                
+           </div>
+        </div>
+        <div class="col-main-catalog">
             <div class="main">
                 <?php echo $this->getChildHtml('breadcrumbs') ?>
                 <div class="col-main">
                     <?php echo $this->getChildHtml('global_messages') ?>
                     <?php echo $this->getChildHtml('content') ?>
                 </div>
-                <div class="col-left sidebar"><?php echo $this->getChildHtml('left') ?></div>
+                <div class="col-left sidebar"><?php //echo $this->getChildHtml('left') ?></div>
             </div>
         </div>
         <?php echo $this->getChildHtml('footer') ?>
