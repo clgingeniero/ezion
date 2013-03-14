@@ -59,6 +59,8 @@ Default layout, loads most of the pages
                 <action method="addItem"><type>js</type><name>lib/ds-sleight.js</name><params/><if>lt IE 7</if></action>
                 <action method="addItem"><type>skin_js</type><name>js/ie6.js</name><params/><if>lt IE 7</if></action>
             </block>
+            
+            
 
             <block type="core/text_list" name="after_body_start" as="after_body_start" translate="label">
                 <label>Page Top</label>
@@ -111,8 +113,12 @@ Default layout, loads most of the pages
                 <label>Page Bottom</label>
             </block>
         </block>
-
         <block type="core/profiler" output="toHtml" name="core_profiler"/>
+        <reference name="the_structural_block"> 
+            <block type="cartview/view" name="cartview_link" template="cartview/link.phtml" > 
+            <block type="checkout/cart_sidebar" name="cart_sidebar" as="topcart" template="checkout/cart/sidebar.phtml"/> 
+            </block> 
+            </reference> 
     </default>
 
     <print translate="label" module="page">
@@ -171,6 +177,11 @@ Default layout, loads most of the pages
             <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
             <!-- Mark root page block that template is applied -->
             <action method="setIsHandle"><applied>1</applied></action>
+           <reference name="the_structural_block"> 
+            <block type="cartview/view" name="cartview_link" template="cartview/link.phtml" > 
+            <block type="checkout/cart_sidebar" name="cart_sidebar" as="topcart" template="checkout/cart/sidebar.phtml"/> 
+            </block> 
+            </reference> 
         </reference>
     </page_two_columns_left>
 

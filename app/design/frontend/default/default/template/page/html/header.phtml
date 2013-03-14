@@ -35,26 +35,31 @@
         <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
         <?php endif?>
         
-        <?php echo $this->getChildHtml('topContainer'); ?>
+        <?php //echo $this->getChildHtml('topLinks') ?>
+       
     </div>
 </div>
 <div class="nav"> <ul id="nav"> <?php echo $this->getChildHtml('topNavadmin') ?> </ul> 
 <div class="barra-redes">
        
-         <div class="twitt">
-            <a href="http://twitter.com/zioninternacional"></a>
-        </div>
-                <div class="face">
-            <a href="http://facebook.com/zioninternacional"></a>
-        </div>
+         <a href="http://twitter.com/zioninternacional"><div class="twitt">
+           
+        </div> </a>
+                <a href="http://facebook.com/zioninternacional"><div class="face">
+           
+        </div> </a>
         
         
         </div>
         <div class="cart">
-            <a href="/checkout/cart"></a>
+           <a href="/checkout/onepage">
+            <div class="img-cart"> </div>
+            </a>
         </div>
+  
      
 </div>
+
 <?php //echo $this->getChildHtml('ajaxlogin_form') ?>
 
 

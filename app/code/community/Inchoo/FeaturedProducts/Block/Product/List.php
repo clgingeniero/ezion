@@ -54,10 +54,12 @@ class Inchoo_FeaturedProducts_Block_Product_List extends Mage_Catalog_Block_Prod
 				->addAttributeToFilter('inchoo_featured_product', 1, 'left')
 				->addStoreFilter();
                         $collection->setPageSize(3);
+                        $collection->getSelect()->order("created_at desc")->limit($this->getLimit());
 
 			Mage::getSingleton('catalog/product_status')->addVisibleFilterToCollection($collection);
 			Mage::getSingleton('catalog/product_visibility')->addVisibleInCatalogFilterToCollection($collection);
 			$this->_productCollection = $collection;
+                        
                         //print_r($collection->getSize());
 		}
 		return $this->_productCollection;

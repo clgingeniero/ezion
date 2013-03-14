@@ -9,7 +9,9 @@ DIV#ajax_login_wrapper UL.messages {
     height:auto!important;
 }
 
-.fastloginButton {width:85px!important; background: url("../images/ingresar.png") no-repeat center center !important;}
+.fastloginButton {height: 27px;
+width: 85px!important;
+background: url("../images/ingresar.png") repeat center !important;}
 
 
 DIV#ajax_login_wrapper {
@@ -19,24 +21,21 @@ DIV#ajax_login_wrapper {
 }
 
 DIV#ajax_login_contents {	
-   -moz-border-bottom-colors: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-   
-    border-radius: 8px 8px 8px 8px;
-    border: solid 2px #A4A6A7;
-    border-top: none;
-    float: right;
-    height: 110px !important;
-    margin: -10px 0 0 4px;
-    min-height: 20px;
-    padding: 45px 7px;
-    
-    position: relative;
-    width: 256px;
-    z-index: 1;
-
+  
+    border-color: #A4A6A7;
+border-radius: 0px 0px 8px 8px;
+border-right: 1px solid #A4A6A7;
+border-left: 1px solid #A4A6A7;
+border-width: medium 1px 1px;
+border-bottom: 1px solid #a4a6a7;
+float: right;
+height: 110px !important;
+margin: -3px 0 0 9px;
+min-height: 20px;
+padding: 45px 7px;
+position: relative;
+width: 256px;
+z-index: 1;
 }
 
 DIV#ajaxlogin_loader_holder{	

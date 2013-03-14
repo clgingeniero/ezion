@@ -196,6 +196,8 @@ Product view
 			<remove name="bestseller.vert.scroller.left"/>
         </reference>
         <reference name="content">
+            
+            <block type="catalog/product_list_related" name="catalog.product.related" before="-" template="catalog/product/list/related.phtml"/>
             <block type="catalog/product_view" name="product.info" template="catalog/product/view.phtml">
                 <!--
                 <action method="addReviewSummaryTemplate"><type>default</type><template>review/helper/summary.phtml</template></action>

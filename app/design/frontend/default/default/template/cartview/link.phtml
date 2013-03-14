@@ -33,7 +33,7 @@
   <div id="cartview-link">
     <?php printf('<a href="%s">%s: %s</a>', $this->getUrl('checkout/cart'), $this->__('My Cart'), $this->helper('checkout')->formatPrice(Mage::getSingleton('checkout/cart')->getQuote()->getGrandTotal())) ?>
   </div>
-  <div id="cartview-panel" style="display:none;">
+  <div id="cartview-panel">
     <?php echo $this->getChildHtml('topcart'); ?>
   </div>
 </div>
