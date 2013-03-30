@@ -25,7 +25,8 @@
  */
 ?>
 <?php $_product = $this->getProduct(); ?>
-<?php $buttonTitle = $this->__(''); ?>
+<?php $buttonTitle = $this->__('add to cart'); ?>
+<?php $session = Mage::getSingleton('customer/session')->isLoggedIn(); ?>
 <?php if($_product->isSaleable()): ?>
     <div class="add-to-cart">
         <?php if(!$_product->isGrouped()): ?>
@@ -33,7 +34,13 @@
         <input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
         <?php endif; ?>
        <div class="btn-cart">
-        <button type="button" title="<?php echo $buttonTitle ?>" onclick="productAddToCartForm.submit(this)"><span><span><?php echo $buttonTitle ?></span></span></button>
+           <?php if(!$session) : ?>
+           <div class="ellog"> <?php echo $this->getChildHtml('topLinks') ?></div>
+           <?php else: ?>
+           
+           <a title="<?php echo $buttonTitle ?>" onclick="productAddToCartForm.submit(this)"><span><?php echo $buttonTitle ?></span></a>
+            
+                <?php endif; ?>
         <?php echo $this->getChildHtml('', true, true) ?>
         </div>
     </div>

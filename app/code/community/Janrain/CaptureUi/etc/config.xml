@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Janrain_CaptureUi>
+            <version>0.1.1</version>
+        </Janrain_CaptureUi>
+    </modules>
+
+    <frontend>
+        <layout>
+            <updates>
+                <captureui>
+                    <file>captureui.xml</file>
+                </captureui>
+            </updates>
+        </layout>
+
+        <translate>
+            <modules>
+                <Janrain_CaptureUi>
+                    <files>
+                        <default>Janrain_CaptureUi.csv</default>
+                    </files>
+                </Janrain_CaptureUi>
+            </modules>
+        </translate>
+
+        <routers>
+            <captureui>
+                <use>standard</use>
+                <args>
+                    <module>Janrain_CaptureUi</module>
+                    <frontName>janrain-captureui</frontName>
+                </args>
+            </captureui>
+        </routers>
+    </frontend>
+
+    <global>
+        <helpers>
+            <captureui>
+                <class>Janrain_CaptureUi_Helper</class>
+            </captureui>
+        </helpers>
+    </global>
+
+    <default>
+        <capture>
+            <options>
+                <path_skin>{{base_skin}}/frontend/janrain/captureui</path_skin>
+            </options>
+        </capture>
+    </default>
+
+</config>

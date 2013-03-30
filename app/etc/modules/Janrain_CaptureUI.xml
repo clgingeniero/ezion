@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Janrain_CaptureUi>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Janrain_CaptureUi>
+    </modules>
+</config>

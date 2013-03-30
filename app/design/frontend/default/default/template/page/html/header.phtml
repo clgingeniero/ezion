@@ -35,28 +35,52 @@
         <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
         <?php endif?>
         
-        <?php //echo $this->getChildHtml('topLinks') ?>
+        <?php $items =  Mage::getSingleton('checkout/session')->getQuote()->getAllItems();
+        $cart = sizeof($items); 
+//echo $this->getChildHtml('topLinks') ?>
        
     </div>
 </div>
-<div class="nav"> <ul id="nav"> <?php echo $this->getChildHtml('topNavadmin') ?> </ul> 
+<div class="nav"> 
+    <ul id="nav"> <?php echo $this->getChildHtml('topNavadmin') ?> </ul> 
+
+    <?php if(!$cart): ?>
 <div class="barra-redes">
+       <a href="http://twitter.com/zioninternacional">
+           <div class="twitt"></div> 
+       </a>
+       <a href="http://facebook.com/zioninternacional">
+           <div class="face"></div> 
+       </a>
+</div>
+<div class="cart">
+   <a href="/checkout/onepage">
+        <div class="img-cart"></div>
+   </a>
+</div>
+ <?php else: ?>
+
+<div class="cart-cart">
+     <div class="barra-redes-cart">
+          <div class="ncart-cart">
+             <span><?php echo  Mage::helper('catalog')->__('Carro de compras'); ?></span>
+         </div>
+       <a href="http://twitter.com/zioninternacional">
+           <div class="twitt"></div> 
+       </a>
+       <a href="http://facebook.com/zioninternacional">
+           <div class="face"></div> 
+       </a>
+        
+         
+</div>
+    
+   <a href="/checkout/onepage">
        
-         <a href="http://twitter.com/zioninternacional"><div class="twitt">
-           
-        </div> </a>
-                <a href="http://facebook.com/zioninternacional"><div class="face">
-           
-        </div> </a>
-        
-        
-        </div>
-        <div class="cart">
-           <a href="/checkout/onepage">
-            <div class="img-cart"> </div>
-            </a>
-        </div>
-  
+       <div class="img-cart-cart"><span class="ncart"><?php echo $cart; ?></span> </div>
+   </a>
+</div>
+ <?php endif; ?>
      
 </div>
 

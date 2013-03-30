@@ -1,0 +1,84 @@
+<?php
+if (Mage::helper('capture')->isCaptureEnabled()):
+    $capture_session = Mage::getSingleton('capture/session');
+    ?>
+    <script type="text/javascript">
+        if (typeof jQuery === 'undefined') {
+            document.write(unescape("%3Cscript src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+        }
+    </script>
+    <script>jQuery.noConflict();</script>
+    <script src="https://<?php echo Mage::helper('capture')->captureUiAddress(); ?>/cdn/javascripts/capture_client.js" type="text/javascript"></script>
+    <script src="<?php echo Mage::helper('captureui')->_baseSkin(); ?>/colorbox/jquery.colorbox.js"></script>
+    <script src="<?php echo Mage::helper('captureui')->_baseSkin(); ?>/janrain_capture_ui.js"></script>
+    <script type="text/javascript">
+        CAPTURE.logoutUrl = '<?php echo Mage::helper('customer')->getLogoutUrl(); ?>';
+        CAPTURE.completeAuthUrl = '<?php echo Mage::getUrl('capture/api/authenticate', array('main' => 'window')); ?>';
+        CAPTURE.recoverPasswordUrl = '<?php echo Mage::getUrl('capture/api/recoverPassword'); ?>';
+        CAPTURE.profileSyncUrl = '<?php echo Mage::getUrl('capture/api/sync'); ?>';
+        CAPTURE.tokenExpiredUrl = '<?php echo Mage::getUrl('capture/api/tokenExpired'); ?>';
+    <?php if ((Mage::getStoreConfig('capture/optional/sso'))): ?>
+        CAPTURE.ssoUrl = 'https://<?php echo Mage::getStoreConfig('capture/optional/sso'); ?>';
+    <?php endif; ?>
+    <?php
+    if ($capture_session->getLoginModal() === true || $capture_session->getCollectMore() === true || $capture_session->getPasswordRecover() === true):
+        if ($capture_session->getLoginModal() === true) {
+            $capture_session->setLoginModal(false);
+            $url = Mage::helper('captureui')->signinUrl();
+        }
+        elseif ($capture_session->getCollectMore() === true) {
+            $capture_session->setCollectMore(false);
+            if ($capture_session->getPasswordRecover() === true
+                && Mage::getStoreConfig('capture/optional/requiredfields') == Mage::getStoreConfig('capture/optional/recoverpassword'))
+                $capture_session->setPasswordRecover(false);
+            $url = 'https://'
+                . Mage::helper('capture')->captureUiAddress()
+                . '/oauth/'
+                . Mage::getStoreConfig('capture/optional/requiredfields')
+                . '?flags=stay_in_window&access_token='
+                . Mage::getSingleton('capture/session')->getAccessToken()
+                . '&callback=CAPTURE.completeAuth&xd_receiver='
+                . urlencode(Mage::getUrl('capture/api/xdcomm', array('_nosid' => true)));
+        }
+        elseif ($capture_session->getPasswordRecover() === true) {
+            $capture_session->setPasswordRecover(false);
+            $url = 'https://'
+                . Mage::helper('capture')->captureUiAddress()
+                . '/oauth/'
+                . Mage::getStoreConfig('capture/optional/recoverpassword')
+                . '?flags=stay_in_window&access_token='
+                . Mage::getSingleton('capture/session')->getAccessToken()
+                . '&callback=CAPTURE.closeProfile&xd_receiver='
+                . urlencode(Mage::getUrl('capture/api/xdcomm', array('_nosid' => true)));
+        }
+    ?>
+        jQuery(function(){
+            jQuery.colorbox({
+                href: '<?php echo $url; ?>',
+                iframe: true,
+                width: 700,
+                height: 700,
+                scrolling: false,
+                overlayClose: false,
+                current: '',
+                next: '',
+                previous: ''
+            });
+        });
+    <?php endif; ?>
+    </script>
+    <?php if ($bpjs = Mage::getStoreConfig('capture/backplane/jspath')): ?>
+    <script type="text/javascript" src="<?php echo $bpjs; ?>"></script>
+    <?php if (($bpServer = Mage::getStoreConfig('capture/backplane/baseurl'))
+        && ($bpBus = Mage::getStoreConfig('capture/backplane/busname'))): ?>
+    <script type="text/javascript">
+        jQuery(function(){
+            Backplane(CAPTURE.bp_ready);
+            Backplane.init({
+                serverBaseURL: "<?php echo $bpServer; ?>",
+                busName: "<?php echo $bpBus; ?>"
+            });
+        });
+    </script>
+    <?php endif; endif; ?>
+<?php endif; ?>

@@ -74,7 +74,7 @@ TINY.box=function(){
 			if(typeof v.top!='undefined'){t=v.top}else{t=(this.height()/v.topsplit)-(j.offsetHeight/2); t=t<20?20:t}
 			if(!v.fixed&&!v.top){t+=this.top()}
 			j.style.top=t+'px'; 
-			j.style.left=typeof v.left!='undefined'?v.left+'px':(this.width()/2)-(j.offsetWidth/2)+'px'
+			j.style.left=typeof v.left!='undefined'?+'363px':(this.width()/2)-(j.offsetWidth/2)+'px'
 		},
 		alpha:function(e,d,a){
 			clearInterval(e.ai);

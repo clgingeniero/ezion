@@ -31,12 +31,17 @@
  * @see Mage_Review_Block_Product_View
  */
 ?>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 <?php $_helper = $this->helper('catalog/output'); ?>
-<?php $_product = $this->getProduct(); ?>
+<?php $_product = $this->getProduct(); 
+Mage::register('currentproduct', $_product);
+?>
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 </script>
-<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div id="messages_product_view"><?php //echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="product-view">
     <div class="content-product-view">
     <div class="product-essential">
@@ -47,13 +52,21 @@
         </div>
         
         <div class="product-shop">
-         
+         <?php $file = false; $attachments = Mage::getModel('fileuploader/fileuploader')->getFilesByProductId($_product->getId());
+  
+                if(count($attachments) > 0) :
+                    foreach ($attachments as $attachment):
+                       $file =  $attachment[0]['uploaded_file']; 
+                       if($file) break;
+                endforeach;
+                endif;
+         ?>
             <?php echo $this->getChildHtml('catalog.product.related') ?>
            
             <div class="div-tit-rojo">
-                <span class="tit-rojo"><?php echo $this->__('Revise en la parte superior su carro de compra');?></span>
+                <span class="tit-rojo"><?php echo Mage::helper('catalog')->__('Revise en la parte superior su carro de compra');?></span>
             </div>
-            <span class="sub-title"><?php echo $this->__('Su orden');?></span>
+            <span class="sub-title"><?php echo Mage::helper('catalog')->__('Su orden');?></span>
             <div class="div-franja"></div>
             <?php if (!$this->hasOptions()):?>
                 <div class="add-to-box">
@@ -63,6 +76,7 @@
                     <?php endif; ?>
                     
                 </div>
+            
             <div class="precio-interno">
              <?php echo $this->getChildHtml('product_type_data') ?>
                 <?php //echo $this->getChildHtml('extra_buttons') ?>
@@ -70,19 +84,18 @@
             <div class="product-name-barra">
                     <span><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></span>
                 </div>
+            
             <?php endif; ?>
 
         </div>
         <div class="doblado"></div>
               <?php //echo $this->getReviewsSummaryHtml($_product, false, true)?>
             <?php //echo $this->getChildHtml('alert_urls') ?>
-        <div class="precio-externo">
-            <?php echo $this->getChildHtml('product_type_data') ?>
-            <?php //echo $this->getTierPriceHtml() ?>
-            <?php //echo $this->getChildHtml('extrahint') ?>
-        </div>
+        
         <div class="product-img-box">
             <?php echo $this->getChildHtml('media') ?><?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+            <?php if($file != false) : ?><div class="showPopup"><span><?php echo Mage::helper('catalog')->__('Click para ver el interior');?></span></div> <?php endif; ?>
+                
         </div>
 
         <div class="clearer"></div>
@@ -90,6 +103,7 @@
             <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
         <?php endif;?>
     </form>
+        <script>  jQuery.noConflict();</script>
     <script type="text/javascript">
     //<![CDATA[
         var productAddToCartForm = new VarienForm('product_addtocart_form');
@@ -140,18 +154,46 @@
             }
         }.bind(productAddToCartForm);
     //]]>
+  
+        jQuery("#dialog").dialog();
+        jQuery('.showPopup').click(function(e) {
+            e.preventDefault();
+            var $this = jQuery(this);
+            var horizontalPadding = 15;
+            var verticalPadding = 15;
+            jQuery('<iframe width="900" height="600" id="site" src="http://127.0.0.1/ezion/pdfmaster/web/viewer.html?rvsta=<?php echo $file ?>" />').dialog({
+                title: ($this.attr('title')) ? $this.attr('title') : '<?php echo $_product->getName(); ?>',
+                autoOpen: true,
+                width: 900,
+                height: 600,
+                modal: true,
+                resizable: false,
+                autoResize: true,
+                overlay: {
+                    opacity: 0.5,
+                    background: "black"
+                }
+            }).width(900 - horizontalPadding).height(600 - verticalPadding);
+        });
     </script>
     </div>
 
     <div class="product-collateral">
-  <?php if ($_product->getShortDescription()):?>
+    <?php if ($_product->getDescription()):?>
                 <div class="short-description">
                    <div class="product-name-view">
                     <span><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></span>
                 </div>
-                    <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
+                
+                <div class="precio-externo">
+                <span class="tit-prec"><?php echo $this->__('Precio: ') ?></span>
+                <?php echo $this->getChildHtml('product_type_data') ?>
+                <?php //echo $this->getTierPriceHtml() ?>
+                <?php //echo $this->getChildHtml('extrahint') ?>
                 </div>
-            <?php endif;?>
+                    <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getDescription()), 'description') ?></div>
+                </div>
+    <?php endif;?>
 
     </div>
     </div>

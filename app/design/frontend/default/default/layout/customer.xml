@@ -65,10 +65,10 @@ Load this update on every page when customer is logged out
     <customer_logged_out>
         <!---<reference name="right">
             <block type="customer/form_login" name="customer_form_mini_login" before="-" template="customer/form/mini.login.phtml"/>
-        </reference>-->
+        </reference>
         <reference name="top.links">
             <action method="addLink" translate="label title" module="customer"><label>Log In</label><url helper="customer/getLoginUrl"/><title>Log In</title><prepare/><urlParams/><position>100</position></action>
-        </reference>
+        </reference>-->
         <remove name="reorder"></remove>
     </customer_logged_out>
 
@@ -83,7 +83,7 @@ Layout for customer login page
         <remove name="left"/>
 
         <reference name="root">
-            <action method="setTemplate"><template>page/1column.phtml</template></action>
+            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
         </reference>
         <reference name="content">
             <block type="customer/form_login" name="customer_form_login" template="customer/form/login.phtml"/>
@@ -101,7 +101,7 @@ Layout for customer log out page
         <remove name="left"/>
 
         <reference name="root">
-            <action method="setTemplate"><template>page/1column.phtml</template></action>
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
         </reference>
         <reference name="content">
             <block type="core/template" name="customer_logout" template="customer/logout.phtml"/>
@@ -119,7 +119,7 @@ New customer registration
         <remove name="left"/>
 
         <reference name="root">
-            <action method="setTemplate"><template>page/1column.phtml</template></action>
+            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
         </reference>
         <reference name="content">
             <block type="customer/form_register" name="customer_form_register" template="customer/form/register.phtml">
@@ -196,6 +196,7 @@ New customer registration
 
         <reference name="left">
           <action method="unsetChild"><name>left.permanent.callout</name></action>
+          <remove name="catalog.leftnav" /> 
         </reference>
     </customer_account_edit>
 
@@ -205,11 +206,23 @@ Customer account pages, rendered for all tabs in dashboard
 
     <customer_account translate="label">
         <label>Customer My Account (All Pages)</label>
-        <!--remove name="catalog.compare.sidebar"/>
-        <remove name="sale.reorder.sidebar"/-->
+        <remove name="catalog.compare.sidebar"/>
+        <remove name="sale.reorder.sidebar"/>
+        
+        <remove name="left.reports.product.viewed" /> 
+        
         <!-- Mage_Customer -->
         <reference name="root">
-            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+            <remove name="checkout_cart_link"/>
+            <block type="checkout/cart_sidebar" name="cart_sidebar" template="checkout/cart/sidebar.phtml" before="-">
+                    <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                    <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                    <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                    <block type="core/text_list" name="cart_sidebar.extra_actions" as="extra_actions" translate="label" module="checkout">
+                        <label>Shopping Cart Sidebar Extra Actions</label>
+                    </block>
+                </block>
         </reference>
 
         <reference name="content">
@@ -220,6 +233,8 @@ Customer account pages, rendered for all tabs in dashboard
         </reference>
 
         <reference name="left">
+            <remove name="catalog.leftnav" /> 
+            <remove name="left.cart_sidebar" /> <!--cart sidebar-->  
             <block type="customer/account_navigation" name="customer_account_navigation" before="-" template="customer/account/navigation.phtml">
                 <action method="addLink" translate="label" module="customer"><name>account</name><path>customer/account/</path><label>Account Dashboard</label></action>
                 <action method="addLink" translate="label" module="customer"><name>account_edit</name><path>customer/account/edit/</path><label>Account Information</label></action>
@@ -230,11 +245,11 @@ Customer account pages, rendered for all tabs in dashboard
                 <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/sidebar/default.phtml</template></action>
                 <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/sidebar/default.phtml</template></action>
             </block>
-            <block type="catalog/product_compare_sidebar" name="catalog.compare.sidebar" template="catalog/product/compare/sidebar.phtml"/>
             <remove name="tags_popular"/>
 			<remove name="bestseller.vert.scroller.left"/>
-			<remove name="cart_sidebar"/>
+			
 			<remove name="catalog.compare.sidebar"/>
+                        <remove name="catalog.leftnav" /> 
 
         </reference>
     </customer_account>
@@ -246,9 +261,22 @@ Customer account home dashboard layout
     <customer_account_index translate="label">
         <label>Customer My Account Dashboard</label>
         <update handle="customer_account"/>
+        <remove name="catalog.compare.sidebar"/>
+        <remove name="sale.reorder.sidebar"/>
+        
+        <remove name="left.reports.product.viewed" />
+        <remove name="catalog.leftnav" />   
         <!-- Mage_Customer -->
         <reference name="root">
-            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+            <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+            <block type="checkout/cart_sidebar" name="cart_sidebar" template="checkout/cart/sidebar.phtml" before="-">
+                    <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                    <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                    <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                    <block type="core/text_list" name="cart_sidebar.extra_actions" as="extra_actions" translate="label" module="checkout">
+                        <label>Shopping Cart Sidebar Extra Actions</label>
+                    </block>
+                </block>
         </reference>
         <reference name="my.account.wrapper">
             <block type="customer/account_dashboard" name="customer_account_dashboard" template="customer/account/dashboard.phtml">
@@ -287,5 +315,6 @@ Customer account address edit page
             <block type="customer/address_edit" name="customer_address_edit" template="customer/address/edit.phtml"/>
         </reference>
     </customer_address_form>
+   
 
 </layout>

@@ -4,8 +4,11 @@
   if($this->getData('hideForm') == 1) {
         //echo "style = 'display:none;';";
   }
+  
 ?>>
+   
     <div id = "ajax_login_contents">  
+        
         <p class="inses"><?php echo $this->__('Iniciar Session') ?></p>
                 <ul class="messages" id ="ajax_login_wrapper_ul" style = "text-align:left;"><li class="error-msg"><ul><li><span id = "do-err-messages"></span></li></ul></li></ul>
         <form action="<?php echo Mage_Customer_Block_Form_Login::getPostActionUrl() ?>" onsubmit="return ajaxloginForm.getClass().validateForm();"  method="post" id = "do_ajaxlogin_form">
@@ -24,14 +27,19 @@
                  <div class="actions">
                     <button type="submit" class="button fastloginButton"><span><?php  echo $this->__('Ingresar') ?></span></button>                
                  </div>
+            
+           
             <div class="borde-pts"></div>
                 <div class="remenber">
                     <label class="txt-red"><?php echo $this->__('No tienes cuenta ?') ?></label>
-                    <a href="#"><?php echo $this->__('Click aqui para crear una cuenta ?') ?></a>
-                    <div class="mano"></div>
+             
+                    <div class="ellog"> <?php echo $this->getChildHtml('topLinks') ?></div>
+	 
+                    
                         
-                </div>
+                </div><div class="mano"></div>
         </form>	 
+                
     </div> 
     
     <div id = "ajaxlogin_loader_holder" style = "display:none;"></div> 
@@ -41,6 +49,7 @@
 
 
 <?php endif; ?>
+ 
 <script type = "text/javascript">
 document.observe("dom:loaded", function() {
        <?php       
@@ -83,3 +92,5 @@ document.observe("dom:loaded", function() {
      
 });
 </script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('quicklogin/tinybox.js') ?>"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('quicklogin/quicklogin.js') ?>"></script>

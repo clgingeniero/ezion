@@ -35,6 +35,16 @@ Default layout, loads most of the pages
         <block type="page/html" name="root" output="toHtml" template="page/3columns.phtml">
 
             <block type="page/html_head" name="head" as="head">
+                <action method="addJs"><script>jquery/js/jquery-1.9.1.js</script></action>
+                <action method="addJs"><script>jquery/js/jquery-ui-1.10.2.custom.js</script></action>
+                <action method="addJs"><script>jquery/js/jquery-ui-1.10.2.custom.min.js</script></action>
+                <action method="addJs"><script>jquery/noconflict.js</script></action>
+                
+                <action method="addCss">
+                    <script>css/ui-lightness/jquery-ui-1.10.2.custom.css</script>
+                </action>
+                <action method="addCss"><script>css/ui-lightness/jquery-ui-1.10.2.custom.min.css</script></action>
+             
                 <action method="addJs"><script>prototype/prototype.js</script></action>
                 <action method="addJs"><script>lib/ccard.js</script></action>
                 <action method="addJs"><script>prototype/validation.js</script></action>
@@ -48,7 +58,7 @@ Default layout, loads most of the pages
                 <action method="addJs"><script>varien/menu.js</script></action>
                 <action method="addJs"><script>mage/translate.js</script></action>
                 <action method="addJs"><script>mage/cookies.js</script></action>
-
+                
                 <block type="page/js_cookie" name="js_cookies" template="page/js/cookie.phtml"/>
 
                 <action method="addCss"><stylesheet>css/styles.css</stylesheet></action>
@@ -69,7 +79,7 @@ Default layout, loads most of the pages
             <block type="page/html_notices" name="global_notices" as="global_notices" template="page/html/notices.phtml" />
 
             <block type="page/html_header" name="header" as="header">
-                <block type="page/template_links" name="top.links" as="topLinks"/>
+               
                 <block type="page/switch" name="store_language" as="store_language" template="page/switch/languages.phtml"/>
                 <block type="core/text_list" name="top.menu" as="topMenu" translate="label">
                     <label>Navigation Bar</label>
@@ -166,10 +176,30 @@ Default layout, loads most of the pages
             <action method="setTemplate"><template>page/1column.phtml</template></action>
             <!-- Mark root page block that template is applied -->
             <action method="setIsHandle"><applied>1</applied></action>
-            <block type = "fastlogin/login" name="ajaxlogin_form" as="ajaxlogin_form" template = "magalter_fastlogin/headerlogin.phtml" />
-           
+            <block type = "fastlogin/login" name="ajaxlogin_form" as="ajaxlogin_form" template = "magalter_fastlogin/headerlogin.phtml" >
+                <block type="page/template_links" name="top.links" as="topLinks">
+                     <action method="setTemplate">
+                        <template>quicklogin/top.links.phtml</template>
+                    </action>
+                </block>    
+            </block>
+            <block type="checkout/cart_sidebar" name="cart_sidebar" template="checkout/cart/sidebar.phtml" before="-">
+                <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <block type="core/text_list" name="cart_sidebar.extra_actions" as="extra_actions" translate="label" module="checkout">
+                    <label>Shopping Cart Sidebar Extra Actions</label>
+                </block>
+            </block>
         </reference>
+         
     </page_one_column>
+    
+    <customer_account_signupformpopup>
+        <remove name="right"/>
+        <remove name="left"/>
+        <block type="core/template"  name="root" output="toHtml" template="quicklogin/quicklogin.phtml"/>
+   </customer_account_signupformpopup>
 
     <page_two_columns_left translate="label">
         <label>All Two-Column Layout Pages (Left Column)</label>
@@ -177,11 +207,15 @@ Default layout, loads most of the pages
             <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
             <!-- Mark root page block that template is applied -->
             <action method="setIsHandle"><applied>1</applied></action>
-           <reference name="the_structural_block"> 
-            <block type="cartview/view" name="cartview_link" template="cartview/link.phtml" > 
-            <block type="checkout/cart_sidebar" name="cart_sidebar" as="topcart" template="checkout/cart/sidebar.phtml"/> 
-            </block> 
-            </reference> 
+          
+             <block type="checkout/cart_sidebar" name="cart_sidebar" template="checkout/cart/sidebar.phtml" before="-">
+                <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <block type="core/text_list" name="cart_sidebar.extra_actions" as="extra_actions" translate="label" module="checkout">
+                    <label>Shopping Cart Sidebar Extra Actions</label>
+                </block>
+            </block>
         </reference>
     </page_two_columns_left>
 
@@ -191,7 +225,16 @@ Default layout, loads most of the pages
             <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
             <!-- Mark root page block that template is applied -->
             <action method="setIsHandle"><applied>1</applied></action>
+            <block type="checkout/cart_sidebar" name="cart_sidebar" template="checkout/cart/sidebar.phtml" before="-">
+                <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/cart/sidebar/default.phtml</template></action>
+                <block type="core/text_list" name="cart_sidebar.extra_actions" as="extra_actions" translate="label" module="checkout">
+                    <label>Shopping Cart Sidebar Extra Actions</label>
+                </block>
+            </block>
         </reference>
+         
     </page_two_columns_right>
 
     <page_three_columns translate="label">

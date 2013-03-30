@@ -49,6 +49,11 @@
                 </div>
                 <div class="cont-login">
                     <?php echo $this->getChildHtml('ajaxlogin_form') ?>
+                    <?php $items =  Mage::getSingleton('checkout/session')->getQuote()->getAllItems();
+                     $cart = sizeof($items);
+                        if($cart)
+                         echo $this->getChildHtml('cart_sidebar') ?>
+                    
                 </div>
                 
            </div>
@@ -58,9 +63,6 @@
             <div class="main">
                 <?php echo $this->getChildHtml('breadcrumbs') ?>
                 <div class="col-main">
-                   
-                    <?php echo $this->getChildHtml('global_messages') ?>
-                    
                     <?php echo $this->getChildHtml('content') ?>
                 </div>
             </div>

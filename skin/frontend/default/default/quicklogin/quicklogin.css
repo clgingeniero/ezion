@@ -1,25 +1,22 @@
 #quicklogin {
     height: 100%;
-    left: 0;
-    overflow: auto;
-    position: absolute;
-    text-align: left;
-    top: 10px;
-    width: 100%;
-	height: auto !important;
-    z-index: 1005;
+left: 0;
+overflow: auto;
+position: absolute;
+text-align: left;
+top: 10px;
+height: auto !important;
+z-index: 505;
+background: 
+#fff;
+border-radius: 15px;
 }
 
 #quicklogin  .quickbg {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 1px solid #999999;
-    border-radius: 5px 5px 5px 5px;
-    box-shadow: 0 0 8px #666666;
-    margin: 0 auto;
-    min-height: 125px;
-    padding: 10px;
-    position: relative;
-    width: 600px;
+   margin: 0 auto;
+min-height: 125px;
+padding: 10px;
+position: relative;
 }
 #tinybox {
     background: url("../images/preload.gif") no-repeat scroll 50% 50% transparent;
@@ -69,20 +66,21 @@
 }
 #quicklogin  .frm-regis, #quicklogin  .frm-login
 {
-    background: none repeat scroll 0 0 #F2F2F2;
     margin: 0 0 15px;
-    padding: 10px;
-    min-height:400px;
-	display: block;
+padding: 10px;
+min-height: 140px;
+display: block;
+width: 409px;
 }
 #quicklogin  .col2-set .col-1 {
-    float: left;
-    margin-left: 40px;
-    width: 280px;
+   float: left;
+width: 426px;
+margin: 0 auto;
 	}
 #quicklogin  .col2-set .col-2 {
-    float: left;
-	width: 280px;
+ float: left;
+width: 426px;
+margin: 0 auto;
 	}
 .lb-login .v3 form .action-btn {
     margin: 0;
@@ -90,25 +88,22 @@
 }
 
 .action-btn {
-    background-color: #E6E6E6;
-    background-image: -moz-linear-gradient(center top , #E6E6E6, #B3B3B3);
-    border: 1px solid #CCCCCC;
-    border-radius: 3px 3px 3px 3px;
-    box-shadow: 2px 2px 2px #808080;
-    color: #000000;
+   background: none repeat scroll 0 0 #A5CD39;
+    color: #FFFFFF;
     cursor: pointer;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 5px 25px;
+    font-size: 10px;
+    
+    margin-top: 5px;
+    padding: 5px 10px;
     text-transform: uppercase;
+    border-radius: 15px;
 	}
 .action-btn.pdp-action-btn:focus {
     background-color: #AAC05E;
     background-image: -moz-linear-gradient(center top , #AAC05E, #619D30);
 }
 .action-btn:focus, .action-btn:hover {
-    background-color: #E6E6E6;
-    background-image: -moz-linear-gradient(center top , #B3B3B3, #E6E6E6);
+    background-color: #1C74BB;
 }
 
 #quicklogin .buttons-set {
@@ -117,16 +112,20 @@
     margin: 0;
     padding: 0;
     text-align: right;
+    background: none !important;
+    border: none !important;
+
 }
 
 .tclose {
-  background: url("images/close.png") no-repeat scroll 0 0 transparent;
-    cursor: pointer;
-    height: 30px;
-    position: absolute;
-     right: -9px;
-    top: -8px;
-    width: 30px;
+  background: url("images/close.png") no-repeat scroll 0 0 
+transparent;
+cursor: pointer;
+height: 30px;
+position: absolute;
+right: 191px;
+top: -1px;
+width: 30px;
 }
 #quicklogin  .for-pass
 {
@@ -171,7 +170,7 @@ float: left;
     top: 0;
     width: 100%;
     z-index: 0;
-	opacity: 0.8 !important;
+	opacity: 0.5 !important;
 }
 
 .tinner {
@@ -180,3 +179,9 @@ float: left;
     height: auto !important;
    /* padding: 15px;*/
 }
+
+.email-a{float: left;
+padding-right: 35px;}
+.pass-a{}
+.btn-send{margin: 0 auto; width: 122px;}
+.form-list input.input-text{width: 176px}

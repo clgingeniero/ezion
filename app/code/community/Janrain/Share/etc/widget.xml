@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<widgets>
+    <share_share type="share/share" translate="name description" module="share">
+        <name>Janrain Share Social Sharing</name>
+        <description type="desc">Adds a link to share content</description>
+        <parameters>
+            <share_text>
+                <required>0</required>
+                <visible>1</visible>
+                <label>Share Text</label>
+                <description>The default text to share in the Social Sharing widget (i.e. Check this out!)</description>
+                <type>text</type>
+            </share_text>
+            <button_text>
+                <required>0</required>
+                <visible>1</visible>
+                <label>Button Text</label>
+                <description>The text to appear in the share button. Defaults to 'Share on'</description>
+                <type>text</type>
+            </button_text>
+        </parameters>
+    </share_share>
+</widgets>

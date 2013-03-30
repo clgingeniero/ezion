@@ -40,10 +40,12 @@ var checkurl = URL + "customer/account/signupformpopup/";
 					}
 					
 					if (response.success){
-					   alert('Successfully Loggedin');
+					   alert('Bienvenido');
 					   redirectTime = "1";
-                       redirectURL = URL;
-					   setTimeout("location.href = redirectURL;",redirectTime);
+                                           //TINY.box.alpha(p,-1,0,3);
+                       redirectURL = response.redirecturl;
+  
+					   setTimeout("location.href = redirectURL;",redirectTime); 
 					}else{
 					    if ((typeof response.message) == 'string') {
 						alert(response.message);

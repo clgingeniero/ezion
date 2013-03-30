@@ -2,7 +2,7 @@
 <script type="text/javascript">
 var URL = '<?php echo $this->getUrl(); ?>';
 </script>
-<?php if(count($_links)>0): ?>
+<?php //if(count($_links)>0): ?>
 
 <ul class="links"<?php if($this->getName()): ?> id="<?php echo $this->getName() ?>"<?php endif;?>>
     <?php foreach($_links as $_link): ?>
@@ -12,10 +12,10 @@ var URL = '<?php echo $this->getUrl(); ?>';
     <?php endforeach; ?>
 	 <?php if(!$this->helper('customer')->isLoggedIn()) :?>
 	
-	 <li><a class="top-link-last" title="<?php echo $this->__('Login / Register') ?>" id="alogin" href="javascript:void(0)" ><?php echo $this->__('Login / Register') ?></a></li>
+	 <li><a class="top-link-last" title="<?php echo $this->__('Click aqui para crear una cuenta ?') ?>" id="alogin" href="javascript:void(0)" ><?php echo $this->__('Click aqui para crear una cuenta ?') ?></a></li>
 	 <?php endif; ?>
 </ul>
-<?php endif; ?>
+<?php //endif; ?>
 <script type="text/javascript" src="<?php echo $this->getSkinUrl('quicklogin/tinybox.js') ?>"></script>
 <script type="text/javascript" src="<?php echo $this->getSkinUrl('quicklogin/quicklogin.js') ?>"></script>
 

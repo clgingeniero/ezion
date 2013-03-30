@@ -1,0 +1,17 @@
+<?php if (Mage::helper('capture')->isCaptureEnabled()): ?>
+    <link type="text/css" href="<?php echo Mage::helper('captureui')->_baseSkin(); ?>/colorbox/colorbox.css" rel="stylesheet" />
+    <?php if ((Mage::getStoreConfig('capture/optional/sso'))): ?>
+        <script src="https://<?php echo Mage::getStoreConfig('capture/optional/sso'); ?>/sso.js" type="text/javascript"></script>
+        <script type="text/javascript">
+        <?php if (!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+            JANRAIN.SSO.CAPTURE.check_login({
+                sso_server: 'https://<?php echo Mage::getStoreConfig('capture/optional/sso'); ?>',
+                client_id: '<?php echo Mage::getStoreConfig('capture/main/clientid'); ?>',
+                redirect_uri: '<?php echo preg_replace("/\/([^\/]+)?$/", "/", Mage::getUrl('capture/api/authenticate', array('_nosid' => true, 'from_sso' => 'true'))); ?>',
+                logout_uri: '<?php echo Mage::getUrl('customer/account/logout'); ?>',
+                xd_receiver: '<?php echo Mage::getUrl('capture/api/xdcomm', array('_nosid' => true)); ?>'
+            });
+        <?php endif; ?>
+        </script>
+    <?php endif; ?>
+<?php endif; ?>

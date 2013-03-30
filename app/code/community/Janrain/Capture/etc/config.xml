@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Janrain_Capture>
+            <version>0.1.1</version>
+        </Janrain_Capture>
+    </modules>
+
+    <frontend>
+
+        <translate>
+            <modules>
+                <Janrain_Capture>
+                    <files>
+                        <default>Janrain_Capture.csv</default>
+                    </files>
+                </Janrain_Capture>
+            </modules>
+        </translate>
+
+        <routers>
+            <capture>
+                <use>standard</use>
+                <args>
+                    <module>Janrain_Capture</module>
+                    <frontName>janrain-capture</frontName>
+                </args>
+            </capture>
+        </routers>
+    </frontend>
+
+    <global>
+
+        <fieldsets>
+            <customer_account>
+                <capture_uuid>
+                    <create>1</create>
+                    <update>1</update>
+                </capture_uuid>
+            </customer_account>
+        </fieldsets>
+
+        <models>
+            <capture>
+                <class>Janrain_Capture_Model</class>
+            </capture>
+        </models>
+        
+        <blocks>
+            <capture>
+                <class>Janrain_Capture_Block</class>
+            </capture>
+        </blocks>
+
+        <helpers>
+            <capture>
+                <class>Janrain_Capture_Helper</class>
+            </capture>
+        </helpers>
+
+        <resources>
+            <capture_setup>
+                <setup>
+                    <module>Janrain_Capture</module>
+                    <class>Janrain_Capture_Model_Resource_Eav_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </capture_setup>
+            <capture_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </capture_write>
+            <capture_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </capture_read>
+        </resources>
+    </global>
+
+    <adminhtml>
+        <translate>
+            <modules>
+                <Janrain_Capture>
+                    <files>
+                        <default>Janrain_Capture.csv</default>
+                    </files>
+                </Janrain_Capture>
+            </modules>
+        </translate>
+
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <capture translate="title" module="capture">
+                                            <title>capture</title>
+                                        </capture>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+
+    <default>
+        <capture>
+            <main>
+                <clientid></clientid>
+                <clientsecret></clientsecret>
+                <captureaddr></captureaddr>
+            </main>
+            <optional>
+                <sso></sso>
+                <captureuiaddr></captureuiaddr>
+                <requiredfields>profile</requiredfields>
+                <recoverpassword>profile</recoverpassword>
+            </optional>
+            <fieldoptions>
+                <email>email</email>
+                <firstname>givenName</firstname>
+                <lastname>familyName</lastname>
+                <matchemail>false</matchemail>
+                <verification>false</verification>
+            </fieldoptions>
+            <backplane>
+                <baseurl></baseurl>
+                <busname></busname>
+                <jspath></jspath>
+            </backplane>
+        </capture>
+    </default>
+
+</config>

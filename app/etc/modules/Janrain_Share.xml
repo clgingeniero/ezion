@@ -1,0 +1,12 @@
+
+<config>
+    <modules>
+        <Janrain_Share>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Cms />
+            </depends>
+        </Janrain_Share>
+    </modules>
+</config>

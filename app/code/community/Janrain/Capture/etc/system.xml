@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <janrain translate="label">
+            <label>Janrain</label>
+            <sort_order>250</sort_order>
+        </janrain>
+    </tabs>
+    <sections>
+        <capture translate="label" module="capture">
+            <label>Capture</label>
+            <tab>janrain</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <main translate="label">
+                    <label>Main</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <clientid translate="label">
+                            <label>Capture Client ID</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[Please enter your Capture Client ID.]]>
+                            </comment>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </clientid>
+                        <clientsecret translate="label">
+                            <label>Capture Client Secret</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[Please enter your Capture Client Secret.]]>
+                            </comment>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </clientsecret>
+                        <captureaddr translate="label">
+                            <label>Capture Address</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[Please enter your Capture Address (e.g. myapp.janraincapture.com).]]>
+                            </comment>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </captureaddr>
+                    </fields>
+                </main>
+                <optional translate="label">
+                    <label>Optional</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <sso translate="label">
+                            <label>Capture SSO Address</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[Optional Capture SSO Address (e.g. myapp.janrainsso.com).]]>
+                            </comment>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sso>
+                        <captureuiaddr translate="label">
+                            <label>CaptureUI Address</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[CaptureUI Address, if different than your main Capture address.]]>
+                            </comment>
+                            <sort_order>20</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </captureuiaddr>
+                        <requiredfields translate="label">
+                            <label>Required Fields Screen</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[Screen to redirect to if missing required fields.]]>
+                            </comment>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </requiredfields>
+                        <recoverpassword translate="label">
+                            <label>Recover Password Screen</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[Screen to redirect to for password recovery.]]>
+                            </comment>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </recoverpassword>
+                        <signinextension translate="label">
+                            <label>Signin Screen Extension</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[Modifies the signin path of the signin screen.]]>
+                            </comment>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </signinextension>
+                    </fields>
+                </optional>
+                <fieldoptions translate="label">
+                    <label>Field Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <email translate="label">
+                            <label>Email Field</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[The profile field to use for the local email.]]>
+                            </comment>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email>
+                        <firstname translate="label">
+                            <label>First Name Field</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[The profile field to use for the local firstname.]]>
+                            </comment>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </firstname>
+                        <lastname translate="label">
+                            <label>Last Name Field</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[The profile field to use for the local lastname.]]>
+                            </comment>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </lastname>
+                        <matchemail translate="label">
+                            <label>Match Users on Email</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>capture/boolean</source_model> 
+                            <comment><![CDATA[Match authenticated Capture users with a local record with the same email.]]>
+                            </comment>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </matchemail>
+                        <verification translate="label">
+                            <label>Enforce Email Verification</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>capture/boolean</source_model>
+                            <comment><![CDATA[Prompt users who have not verified their email address to do so before completing authentication.]]>
+                            </comment>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </verification>
+                    </fields>
+                </fieldoptions>
+                <backplane>
+                    <label>Backplane</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>40</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <baseurl translate="label">
+                            <label>Server Base URL</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[Your Backplane server address.]]>
+                            </comment>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </baseurl>
+                        <busname translate="label">
+                            <label>Bus Name</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[The Backplane Bus to subscribe to.]]>
+                            </comment>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </busname>
+                        <jspath translate="label">
+                            <label>JS Path</label>
+                            <frontend_type>text</frontend_type>
+                            <comment><![CDATA[The path to backplane.js.]]>
+                            </comment>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </jspath>
+                    </fields>
+                </backplane>
+            </groups>
+        </capture>
+    </sections>
+</config>

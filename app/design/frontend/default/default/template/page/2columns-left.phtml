@@ -37,48 +37,86 @@
 <body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
 <?php echo $this->getChildHtml('after_body_start') ?>
 <div class="wrapper">
-    <?php echo $this->getChildHtml('global_notices') ?>
+    <?php //echo $this->getChildHtml('global_notices') ?>
     <div class="page">
+        
         <?php echo $this->getChildHtml('header') ?>
-        <?php /*echo $this->getChildHtml('cartview_link') ?>
-        <?php echo $this->getLayout()->createBlock('checkout/cart_sidebar')->setBlockId('cart_sidebar')->toHtml() . "sasas"; ?>
-        <?php echo $this->getChildHtml('topcart'); ?>
-        <?php echo $this->getChildHtml('topLinks') ?>
-        <?php echo $this->getChildHtml('cartview_link') */?>
+        
+        <?php 
+        
+        $prod = Mage::registry('product');
+        if($prod != null){
+            $catProdIds = $prod->getCategoryIds();
+            $catProd = (isset($catProdIds[2])) ? $catProdIds[2] : $catProdIds[0] ;
+            $category = Mage::getModel('catalog/category')->load($catProd) ;
+            $name =  $category->getName();
+        }
+        
+        $catNum = 7; //The number of the category you want to load
+        $category = Mage::getModel('catalog/category')->load($catNum);
+        $products = Mage::getModel('catalog/product')->getCollection()
+            
+            ->addAttributeToSelect('*')
+            //->setStoreId($storeId)
+            //->addStoreFilter($storeId)
+            ->addCategoryFilter($category);
+        $revc = 'inactive';
+        $libc = 'inactive';
+        if($name == "Revistas"){
+            $revc = 'active';
+        }elseif($name == 'Libros'){
+            $libc = 'active';
+        }
+        ?>
+        
+       
         <div class="main-catalog">
 
             <?php //echo $this->getChildHtml('topMenu') 
             ?>
             <div class="bann-tot">
                 <div class="dv-tit">
-                    <span class="tit-tienda"><?php echo $this->__('Nuestra tienda'); ?></span>
+                    <span class="tit-tienda"><?php echo Mage::helper('catalog')->__('Nuestra tienda'); ?></span>
                     <div class="img-tienda"></div>
                 </div>
                 <div class="banner-cat">
                     <div class="block-super-catalog">
-                        <div class=""></div>
-                        <span class="t-active"><?php echo $this->__('Revistas'); ?></span>
+                        <div class="vineta<?php echo ($name == 'Revistas') ? '-revista' : '' ;?>"></div>
+                        <span class="t-<?php echo $revc; ?>"><?php echo Mage::helper('catalog')->__('Revistas'); ?></span>
                         <div class="texto-cat-r"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('revista')->toHtml(); ?></div> 
                     </div>
                     <div class="block-super-catalog">
-                        <span class="t-inactive"><?php echo $this->__('Libros'); ?></span>
-                        <div class="texto-cat-l"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('libro')->toHtml(); ?></div> 
+                        <div class="vineta<?php echo ($name == 'Libros') ? '-libro' : '' ;?>"></div>
+                        <span class="t-<?php echo $libc; ?>"><?php echo Mage::helper('catalog')->__('Libros'); ?></span>
+                        <div class="texto-cat-l"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('libro')->toHtml(); ?>
+                        <?php //var_dump($products); 
+                        foreach ($products as $product): ?>
+                            <div class="books"><a href="<?php echo $product->getProductUrl() ?>"><?php echo $product->getName(); ?></a></div>
+                        <?php endforeach;  ?>
+                        </div> 
                     </div>
                      <div class="block-super-catalog">
-                        <span class="t-inactive"><?php echo $this->__('Aula virtual'); ?></span>
+                         <div class="vineta"></div>
+                        <span class="t-inactive"><?php echo Mage::helper('catalog')->__('Aula virtual'); ?></span>
                         <div class="texto-cat-a"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('aula')->toHtml(); ?></div> 
                     </div>
                     <div class="block-super-catalog">
-                        <span class="t-inactive"><?php echo $this->__('Aplicaciones'); ?></span>
+                        <div class="vineta"></div>
+                        <span class="t-inactive"><?php echo Mage::helper('catalog')->__('Aplicaciones'); ?></span>
                         <div class="texto-cat-ap"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('aplica')->toHtml(); ?></div> 
                     </div>
                     <?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('banner')->toHtml() ?>
                 </div>
-                <div class="cont-login">
-                    <?php echo $this->getChildHtml('ajaxlogin_form') ?>
-                </div>
+                
                 
            </div>
+            <div class="cont-login-cart">
+                    
+                   <?php $items =  Mage::getSingleton('checkout/session')->getQuote()->getAllItems();
+                     $cart = sizeof($items);
+                        if($cart)
+                         echo $this->getChildHtml('cart_sidebar') ?>
+                </div>
         </div>
         <div class="col-main-catalog">
             <div class="main">

@@ -1,0 +1,76 @@
+
+UNICODE MAGENTO EXTENSIONS:
+===========================
+
+Product Attachment Extension
+============================
+Product Attachments extension provides uploading of multiple audio (QuickTime), video, pdf, 
+and many other files and download or view these files on product page using content-disposition property.
+Supported extensions "jpg", "jpeg", "gif", "png", "bmp", "txt", "csv", "htm", "html", "xml", "css", "doc", 
+"docx", "xls", "rtf", "ppt", "pdf", "swf", "flv", "avi", "wmv", "mov", "wav", "mp3", "zip" and many more.
+
+
+FEATURES:
+=========
+
+To maximize profits, you should do everything you can to make sure your customers to purchase products online.
+
+* Configurable in your Magento admin panel.
+* Ability to upload file and attach it to a product or many products instantly.
+* Ability to share files or media content from product Page.
+* Ability to show downloadable(attached files) files directly on product page
+* Provide a better customer experience.
+* Easy to install and use.
+* Supported file extensions: 
+            "jpg", "jpeg", "gif", 
+            "png", "bmp", "txt", 
+            "csv", "htm", "html", 
+            "xml", "css", "doc", 
+            "docx", "xls", "rtf", 
+            "ppt", "pdf", "swf", 
+            "flv", "avi", "wmv", 
+            "mov", "wav", "mp3", "zip" and many more.
+
+
+Tech Specification:
+===================
+Compatible: 1.3
+            1.4.0.1, 1.4.1.1, 1.4.2.0,
+            1.5.0.0, 1.5.1.0,
+            1.6.0.0, 1.6.1.0, 1.6.2.0,
+            1.7.0.0, 1.7.0.2
+
+How to configure the Product Attachment Module ?
+================================================
+
+After installing Product Attachment Module, 
+1. Go to Admin -> System -> Configuration -> Unicode Systems Extensions (at the left), 
+   You will find a tab called “Product Attachment”. By clicking the tab, you can enable/disable the Product Attachment Module. 
+
+2. Go to Admin -> Catalog -> Product Attachment,
+   On click this sub menu You can add new and edit exixting uploaded files and
+   add it to one or many products.
+
+    Add new Item Information:
+    * Title
+    * File
+    * Status 	
+    * Content-Disposition 	
+    * Content 											
+    * Sort Order
+
+General Fixes: / Common Issues :
+================================
+“Access Denied” in Administration Panel
+
+If you come across “Access Denied “ / “404 Error” message when trying to access the
+Product Attachment Module after installation, please follow the below steps:
+Go to Admin->System->Permission->Roles, edit the role then save and
+log-out. Log-in again in your admin panel after clearing your browser cache.
+
+
+
+
+              
+
+

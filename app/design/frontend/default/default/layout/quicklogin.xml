@@ -10,8 +10,7 @@
 	
     </default>
    <customer_account_signupformpopup>
-        <remove name="right"/>
-        <remove name="left"/>
+       
         <block type="core/template"  name="root" output="toHtml" template="quicklogin/quicklogin.phtml"/>
    </customer_account_signupformpopup>
    	 

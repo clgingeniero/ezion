@@ -84,7 +84,7 @@
                     <?php // if (Mage::getStoreConfig('featuredproducts/general/price_visible')): ?>
                     <?php if($_product->isSaleable()): ?>
                       <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">
-                          <?php echo $this->__('Ver más') ?></a>
+                          <?php echo Mage::helper('catalog')->__('Ver más') ?></a>
                 
                 
                     <?php else: ?>
