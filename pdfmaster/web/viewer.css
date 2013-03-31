@@ -24,7 +24,7 @@ html {
 
 body {
   height: 100%;
-  background-color: #404040;
+  background-color: #006FA7;
   background-image: url(images/texture.png);
 }
 
@@ -1452,5 +1452,12 @@ canvas {
   #scaleSelectContainer, #pageNumberLabel {
     display: none;
   }
+}
+
+.ui-widget-header {
+    background: none repeat scroll 0 0 #A6CE38 !important;
+    border: 1px solid #AAAAAA;
+    color: #222222;
+    font-weight: bold;
 }
 

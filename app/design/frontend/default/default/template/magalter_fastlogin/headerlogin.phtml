@@ -9,7 +9,7 @@
    
     <div id = "ajax_login_contents">  
         
-        <p class="inses"><?php echo $this->__('Iniciar Session') ?></p>
+        <p class="inses"><?php echo  Mage::helper('catalog')->__('Iniciar sesion') ?></p>
                 <ul class="messages" id ="ajax_login_wrapper_ul" style = "text-align:left;"><li class="error-msg"><ul><li><span id = "do-err-messages"></span></li></ul></li></ul>
         <form action="<?php echo Mage_Customer_Block_Form_Login::getPostActionUrl() ?>" onsubmit="return ajaxloginForm.getClass().validateForm();"  method="post" id = "do_ajaxlogin_form">
             <div id = "float1">
@@ -25,13 +25,13 @@
                      <input type="password" name="login[password]" id="do-mini-password" class="input-text required-entry validate-password" value = "<?php  echo $this->__('Login password') ?>" />
                 </div>
                  <div class="actions">
-                    <button type="submit" class="button fastloginButton"><span><?php  echo $this->__('Ingresar') ?></span></button>                
+                    <button type="submit" class="button fastloginButton"><span><?php  echo  Mage::helper('catalog')->__('Ingresar') ?></span></button>                
                  </div>
             
            
             <div class="borde-pts"></div>
                 <div class="remenber">
-                    <label class="txt-red"><?php echo $this->__('No tienes cuenta ?') ?></label>
+                    <label class="txt-red"><?php echo Mage::helper('catalog')->__('No tienes cuenta ?') ?></label>
              
                     <div class="ellog"> <?php echo $this->getChildHtml('topLinks') ?></div>
 	 
