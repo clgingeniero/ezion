@@ -25,13 +25,13 @@
                      <input type="password" name="login[password]" id="do-mini-password" class="input-text required-entry validate-password" value = "<?php  echo $this->__('Login password') ?>" />
                 </div>
                  <div class="actions">
-                    <button type="submit" class="button fastloginButton"><span><?php  echo  Mage::helper('catalog')->__('Ingresar') ?></span></button>                
+                     <input type="submit" class="fastloginButton" value="<?php  echo  Mage::helper('catalog')->__('Ingresar') ?>">          
                  </div>
             
            
             <div class="borde-pts"></div>
                 <div class="remenber">
-                    <label class="txt-red"><?php echo Mage::helper('catalog')->__('No tienes cuenta ?') ?></label>
+                    <label class="txt-red"><?php echo Mage::helper('catalog')->__('No tienes cuenta?') ?></label>
              
                     <div class="ellog"> <?php echo $this->getChildHtml('topLinks') ?></div>
 	 

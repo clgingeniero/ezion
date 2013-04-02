@@ -34,7 +34,7 @@
                 
                 <div class="product">
                     <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" class="product-image">
-                        <img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(70) ?>" width="70" height="70" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a>
+                        <img src="<?php echo $this->helper('catalog/image')->init($_item, 'small_image')->resize(70) ?>" width="70" height="70" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a>
                     <div class="product-details">
                         <p class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></p>
                         <?php //echo $this->getPriceHtml($_item, true, '-related') ?>
@@ -43,6 +43,7 @@
                 </div>
             </div>
         <?php endforeach ?>
+        <div class="item"><a href="/productos.html"><div class="img-vermas"><?php echo Mage::helper('catalog')->__('View more') ?></div></a></div> 
          <script type="text/javascript">decorateList('block-related', 'none-recursive')</script>
     </div>
     <script type="text/javascript">

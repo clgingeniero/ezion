@@ -73,18 +73,21 @@
             ?>
             <div class="bann-tot">
                 <div class="dv-tit">
-                    <span class="tit-tienda"><?php echo $this->__('Nuestra tienda'); ?></span>
+                    <div  class="tit-tienda"><span><?php echo Mage::helper('catalog')->__('Nuestra tienda'); ?></span></div>
                     <div class="img-tienda"></div>
                 </div>
                 <div class="banner-cat">
                     <div class="block-super-catalog">
                         <div class="vineta<?php echo ($name == 'Revistas') ? '-revista' : '' ;?>"></div>
-                        <span class="t-<?php echo $revc; ?>"><?php echo $this->__('Revistas'); ?></span>
+                        <a class="t-rev-<?php echo $revc; ?>" href="/revista-zion-no-10.html">
+                        <span><?php echo Mage::helper('catalog')->__('Revistas'); ?></span></a>
                         <div class="texto-cat-r"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('revista')->toHtml(); ?></div> 
                     </div>
                     <div class="block-super-catalog">
                         <div class="vineta<?php echo ($name == 'Libros') ? '-libro' : '' ;?>"></div>
-                        <span class="t-<?php echo $libc; ?>"><?php echo $this->__('Libros'); ?></span>
+                        <a class="t-book-<?php echo $libc; ?>" href="/ingles-biblico.html">
+                            <span><?php echo Mage::helper('catalog')->__('Libros'); ?></span>
+                        </a>
                         <div class="texto-cat-l"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('libro')->toHtml(); ?>
                         <?php //var_dump($products); 
                         foreach ($products as $product): ?>
@@ -94,12 +97,12 @@
                     </div>
                      <div class="block-super-catalog">
                          <div class="vineta"></div>
-                        <span class="t-inactive"><?php echo $this->__('Aula virtual'); ?></span>
+                         <a class="t-book-inactive" href="http://www.zioninternacional.com/aula.html"><span><?php echo Mage::helper('catalog')->__('Aula virtual'); ?></span></a>
                         <div class="texto-cat-a"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('aula')->toHtml(); ?></div> 
                     </div>
                     <div class="block-super-catalog">
                         <div class="vineta"></div>
-                        <span class="t-inactive"><?php echo $this->__('Aplicaciones'); ?></span>
+                        <a class="t-book-inactive"><span><?php echo Mage::helper('catalog')->__('Aplicaciones'); ?></span></a>
                         <div class="texto-cat-ap"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('aplica')->toHtml(); ?></div> 
                     </div>
                     <?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('banner')->toHtml() ?>

@@ -9,10 +9,13 @@ DIV#ajax_login_wrapper UL.messages {
     height:auto!important;
 }
 
-.fastloginButton {height: 27px;
-width: 85px!important;
+.fastloginButton {height: 27px; color: #006FA7; padding-left: 9px;
+    text-align: left;
+width: 85px!important; border: none;
 background: url("../images/ingresar.png") repeat center !important;}
 
+.fastloginButton:hover{ border: none;
+background: url("../images/ingresar_over.png") repeat center !important;}
 
 DIV#ajax_login_wrapper {
     
@@ -29,10 +32,11 @@ DIV#ajax_login_contents {
     border-right: 1px solid #A4A6A7;
     border-width: medium 1px 1px;
     float: right;
-    height: 110px !important;
+   
     margin: -3px 0 0 8px;
     min-height: 170px;
-    padding: 17px 7px;
+    height: auto;
+    padding: 4px 7px;
     position: relative;
     width: 258px;
     z-index: 1;

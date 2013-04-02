@@ -25,7 +25,7 @@
  */
 ?>
 <?php $_product = $this->getProduct(); ?>
-<?php $buttonTitle = $this->__('add to cart'); ?>
+<?php $buttonTitle = $this->__('Add to Cart'); ?>
 <?php $session = Mage::getSingleton('customer/session')->isLoggedIn(); ?>
 <?php if($_product->isSaleable()): ?>
     <div class="add-to-cart">
@@ -38,10 +38,11 @@
            <div class="ellog"> <?php echo $this->getChildHtml('topLinks') ?></div>
            <?php else: ?>
            
-           <a title="<?php echo $buttonTitle ?>" onclick="productAddToCartForm.submit(this)"><span><?php echo $buttonTitle ?></span></a>
+           <a title="<?php echo $buttonTitle ?>" onclick="productAddToCartForm.submit(this)"></a>
             
                 <?php endif; ?>
         <?php echo $this->getChildHtml('', true, true) ?>
         </div>
+        <div class="txt-cart"><?php echo $buttonTitle ?></div>
     </div>
 <?php endif; ?>
